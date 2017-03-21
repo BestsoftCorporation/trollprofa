@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Troll Profa</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo">Troll Profa™</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.php">Home</a></li>
+                            <!--
+							<li>
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+											<li><a href="#">Option 3</a></li>
+											<li><a href="#">Option 4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							 -->
+							<li><a href="#" class="button special">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			
+
+
+			
+			<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Solved tasks from Math and Physic</h2>
+							
+						</header>
+						<form method="get"  class="container 50%" onsubmit="st()">
+                            <p>Subject:</p>
+                                        <select name="subj" id="category">
+													<option id="Matematika" value="Matematika">Math</option>
+													<option id="Fizika" value="Fizika">Physic</option>
+										</select>
+                               <p>Class:</p>
+                            			<div class="4u 12u$(medium)">
+											<input type="radio" id="I" value="I" name="class">
+											<label for="1">1.</label>
+										</div>
+										<div class="4u 12u$(medium)">
+											<input type="radio" id="II" value="II" name="class">
+											<label for="2">2.</label>
+										</div>
+										<div class="4u$ 12u$(medium)">
+											<input type="radio" id="III" value="III" name="class" >
+											<label for="3">3.</label>
+										</div>
+                                       <div class="4u$ 12u$(medium)">
+											<input type="radio" id="IV" value="IV" name="class" checked>
+											<label for="4">4.</label>
+										</div>
+              
+							<div class="row uniform 50%">
+								<div class="8u 12u$(xsmall)"><input type="text" id="task" name="task" placeholder="Type number of the task (ex.. 008,010,100...)" /></div>
+								<div class="4u$ 12u$(xsmall)"><input type="submit"  value="GO" class="fit special" /></div>
+							</div>
+						</form>
+					</div>
+				</section>
+         <!-- Four -->
+				<section id="four" class="wrapper style1 special fade-up">
+					<div class="container">
+						<header class="major">
+                            <script>
+
+                                function checkImage(imageSrc, good, bad) {
+                                      var img = new Image();
+                                      img.onload = good; 
+                                      img.onerror = bad;
+                                      img.src = imageSrc;
+                                }
+
+                                
+                          function st(){
+							  document.getElementById("h").innerHTML='<h2>Task: '+String(QueryString.task)+"</h2><p>Solution:</p>";
+                              document.getElementById(String(QueryString.class)).checked = true;
+                              document.getElementById(String(QueryString.subj)).selected = true;
+                                var imageUrl = "http://internetprofa.com/images/stories/"+String(QueryString.subj)+"_" + String(QueryString.class) + "_Krug/" + String(QueryString.task) + "-" + "1" + ".png";
+                                var i=1;
+                                ch();
+                                function ch(){
+                                 checkImage(imageUrl, function(){  document.getElementById("t").innerHTML+='<br><img src="'+ imageUrl +'" >';i++;imageUrl = "http://internetprofa.com/images/stories/"+String(QueryString.subj)+"_" + String(QueryString.class) + "_Krug/" + String(QueryString.task) + "-" + i + ".png"; ch(); }, function(){} );
+                                 
+                                }    
+                                var cha = 'a'; 
+                                bch();
+                                function bch(){
+                                 checkImage(imageUrl, function(){  document.getElementById("t").innerHTML+=ch+')<br><img src="'+ imageUrl +'" >';imageUrl = "http://internetprofa.com/images/stories/"+String(QueryString.subj)+"_" + String(QueryString.class) + "_Krug/" + String(QueryString.task)  +cha+ ".png"; cha= String.fromCharCode(cha.charCodeAt(0) + 1);bch(); }, function(){} );
+                                }
+                          }
+                                var QueryString = function ()
+                                {
+
+                                    var query_string = {};
+                                    var query = window.location.search.substring(1);
+                                    var vars = query.split("&");
+                                    for (var i = 0; i < vars.length; i++)
+                                    {
+                                        var pair = vars[i].split("=");
+
+                                        if (typeof query_string[pair[0]] === "undefined")
+                                        {
+                                            query_string[pair[0]] = decodeURIComponent(pair[1]);
+
+                                        } else if (typeof query_string[pair[0]] === "string")
+                                        {
+                                            var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+                                            query_string[pair[0]] = arr;
+
+                                        } else
+                                        {
+                                            query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                                        }
+                                    }
+                                    return query_string;
+                                } ();
+                                window.onload = st;
+</script>
+                                    <p id="h"></p>
+                            		<pre><code id="t">
+                                	</code></pre>
+                        </header>
+						
+						<footer class="major">
+							<ul class="actions">
+								<li><a href="index.html" class="button">Refresh</a></li>
+							</ul>
+						</footer>
+					</div>
+				</section>
+
+			<!-- Five -->
+			<!-- Footer -->
+				<footer id="footer">
+                    <a href=""><img src="troll.jpg" alt="Smiley face" height="42" width="42">
+					<ul class="icons">
+						<!--<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>-->
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Troll Profa 2016. All rights reserved.</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <title>Particleground demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- remember, jQuery is completely optional -->
+  <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
+  <script type='text/javascript' src='../jquery.particleground.js'></script>
+  <script type='text/javascript' src='js/demo.js'></script>
+  <style>
+    #email {
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border: none;
+    outline:none;
+    height:30px;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+}
+#email:focus {
+    height:50px;
+    font-size:16px;
+}
+  </style>
+</head>
+
+<body onload="ld()">
+
+<div id="particles">
+  <div id="intro">
+    <h1>God damn</h1>
+    <p>Secure chat. Type message and dissapear.</p>
+    <input  style="height:200%;font-size:200%;" id="email" type="text" name="fname" placeholder="Your bloodie message...">
+    <a href="#" class="btn">Send</a>
+
+
+  </div>
+</div>
+<script>
+  function ld(){
+   document.getElementById("email").focus();
+  }
+</script>
+
+
+</body>
+</html>
